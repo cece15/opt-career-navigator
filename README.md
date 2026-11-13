@@ -10,7 +10,7 @@ sequentially to search, screen, and score real job postings.
 https://opt-career-navigator-mauvmvrdfx6mylxs7ptluo.streamlit.app/
 
 ## The Problem It Solves
-International students waste hours applying to jobs that will 
+International students spend hours applying to jobs that will 
 never sponsor them. This tool searches real job boards, screens 
 each posting for OPT/H-1B sponsorship signals, and ranks results 
 by fit — in under 2 minutes.
@@ -30,7 +30,7 @@ Three agents working sequentially:
 ### Agent 2 — Sponsorship Screening Agent  
 - Model: llama-3.3-70b-versatile, temperature=0.0
 - Why this model: Visa risk assessment must be precise and 
-  consistent — zero temperature eliminates randomness
+  consistent, so temperature is set to 0
 - Output: GREEN/YELLOW/RED rating per posting with reasoning
 
 ### Agent 3 — Fit Scoring Agent
@@ -42,9 +42,8 @@ Three agents working sequentially:
 
 ## Agentic Pattern
 Each agent receives the previous agent's output as context.
-Sponsorship analysis feeds into fit scoring so final rankings
-incorporate both skill match and visa risk. This creates 
-reasoning impossible from a single prompt.
+Sponsorship analysis feeds into fit scoring, so the final ranking
+reflects both skill match and visa risk.
 
 ## Prompt Engineering Decisions
 - Each agent has a dedicated system prompt with explicit 
@@ -105,6 +104,3 @@ Search: Data Analyst in Atlanta
 - Cannot access paywalled job boards
 - Sponsorship assessment is based on language signals only, 
   not verified USCIS data
-
-
-C:\Users\User\OneDrive\Desktop\opt-career-navigator> 
